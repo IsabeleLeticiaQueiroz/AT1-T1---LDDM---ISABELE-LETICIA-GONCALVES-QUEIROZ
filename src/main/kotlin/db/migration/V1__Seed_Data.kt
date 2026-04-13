@@ -10,14 +10,11 @@ fun seedData() {
 
     transaction {
 
-        // 🔥 limpa tudo
         SchemaUtils.drop(Characters)
         SchemaUtils.drop(Houses)
 
-        // 🔥 recria tabelas
         SchemaUtils.create(Houses, Characters)
 
-        // 🔥 cria casas e pega os IDs reais
         val casa1Id = Houses.insert {
             it[nome] = "Casa da Família Coelho Chocolate"
             it[localizacao] = "Vila Sylvanian"
@@ -33,7 +30,6 @@ fun seedData() {
             it[localizacao] = "Floresta Aconchegante"
         } get Houses.id
 
-        // 🔥 cria personagens usando os IDs corretos
         Characters.insert {
             it[nome] = "Freya Coelho Chocolate"
             it[familia] = "Família Coelho Chocolate"

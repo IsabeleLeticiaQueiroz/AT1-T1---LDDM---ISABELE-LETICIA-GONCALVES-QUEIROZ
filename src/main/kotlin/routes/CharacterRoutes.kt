@@ -18,7 +18,7 @@ fun Route.characterRoutes() {
             call.respond(repo.getAll())
         }
 
-        // GET BY ID
+        // GET  ID
         get("/{id}") {
             val id = call.parameters["id"]!!.toInt()
             val character = repo.getById(id)
