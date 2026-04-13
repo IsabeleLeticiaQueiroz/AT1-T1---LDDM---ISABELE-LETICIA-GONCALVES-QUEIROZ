@@ -1,7 +1,8 @@
 # Sylvanian API
 <p align="center">
   <img src="./giphy.gif" width="200"/>
-</p>## Autora
+</p>
+## Autora
 Isabele Leticia Gonçalves Queiroz
 
 ## 📖 Sobre
