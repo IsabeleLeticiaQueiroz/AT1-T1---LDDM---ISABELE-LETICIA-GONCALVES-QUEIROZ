@@ -1,10 +1,10 @@
 # Sylvanian API
 
-## 👩‍💻 Autora
+## Autora
 Isabele Leticia Gonçalves Queiroz
 
 ## 📖 Sobre
-A Sylvanian API é uma aplicação backend desenvolvida com Ktor que simula o gerenciamento de dados do universo Sylvanian Families, uma linha de brinquedos que representa famílias de animais vivendo em uma vila fictícia.
+A Sylvanian API é uma aplicação que simula o gerenciamento de dados do universo Sylvanian Families, uma linha de brinquedos que representa famílias de animais vivendo em uma vila fictícia.
 
 A API permite realizar operações de CRUD (Create, Read, Update, Delete) para:
 - 🏠 Casas (Houses)
