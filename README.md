@@ -1,5 +1,5 @@
 # Sylvanian API
-
+![Sylvanian GIF](./giphy.gif)
 ## Autora
 Isabele Leticia Gonçalves Queiroz
 
