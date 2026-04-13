@@ -1,0 +1,222 @@
+openapi: 3.0.0
+
+info:
+  title: Sylvanian API
+  version: 1.0.0
+  description: API para gerenciamento de casas e personagens do universo Sylvanian Families.
+
+servers:
+  - url: http://localhost:8080
+    description: Servidor local
+
+paths:
+
+  /houses:
+
+    get:
+      summary: Listar todas as casas
+      responses:
+        '200':
+          description: Lista de casas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/House'
+
+    post:
+      summary: Criar uma nova casa
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HouseInput'
+      responses:
+        '200':
+          description: Casa criada com sucesso
+
+
+  /houses/{id}:
+
+    get:
+      summary: Buscar casa por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Casa encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/House'
+
+    put:
+      summary: Atualizar casa
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HouseInput'
+      responses:
+        '200':
+          description: Casa atualizada
+
+    delete:
+      summary: Deletar casa
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Casa deletada
+
+
+  /characters:
+
+    get:
+      summary: Listar todos os personagens
+      responses:
+        '200':
+          description: Lista de personagens
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Character'
+
+    post:
+      summary: Criar um novo personagem
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CharacterInput'
+      responses:
+        '200':
+          description: Personagem criado com sucesso
+
+
+  /characters/{id}:
+
+    get:
+      summary: Buscar personagem por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Personagem encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Character'
+
+    put:
+      summary: Atualizar personagem
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CharacterInput'
+      responses:
+        '200':
+          description: Personagem atualizado
+
+    delete:
+      summary: Deletar personagem
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Personagem deletado
+
+
+components:
+
+  schemas:
+
+    House:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        nome:
+          type: string
+          example: Casa da Família Coelho Chocolate
+        localizacao:
+          type: string
+          example: Vila Sylvanian
+
+    HouseInput:
+      type: object
+      properties:
+        nome:
+          type: string
+          example: Nova Casa
+        localizacao:
+          type: string
+          example: Nova Região
+
+    Character:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        nome:
+          type: string
+          example: Freya Coelho Chocolate
+        familia:
+          type: string
+          example: Família Coelho Chocolate
+        especie:
+          type: string
+          example: Coelho
+        casaId:
+          type: integer
+          example: 1
+
+    CharacterInput:
+      type: object
+      properties:
+        nome:
+          type: string
+        familia:
+          type: string
+        especie:
+          type: string
+        casaId:
+          type: integer
